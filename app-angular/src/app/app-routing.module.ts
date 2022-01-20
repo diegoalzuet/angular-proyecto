@@ -39,13 +39,13 @@ const routes: Routes = [
   // },
   {
     path: 'carrito',
-    canActivate: [ProtectedRouteGuard, AdminRoleGuard],
+    canActivate: [ProtectedRouteGuard],
     loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)
     // component: CartComponent
   },
   {
     path:'account',
-    // canActivate: [ProtectedRouteGuard],
+    canActivate: [ProtectedRouteGuard],
     component: AccountComponent
   },
   {
