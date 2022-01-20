@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminRoleGuard } from './guards/admin-role.guard';
 import { AccountComponent } from './features/account/account/account.component';
+import { ListAccountsComponent } from './features/list-accounts/list-accounts/list-accounts.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,11 @@ const routes: Routes = [
     path:'account',
     canActivate: [ProtectedRouteGuard],
     component: AccountComponent
+  },
+  {
+    path:'list-accounts',
+    canActivate: [ProtectedRouteGuard, AdminRoleGuard],
+    component: ListAccountsComponent
   },
   {
     path: '',

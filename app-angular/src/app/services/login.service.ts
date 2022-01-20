@@ -11,6 +11,7 @@ export class LoginService {
 
   private urlLogin = environment.loginRestApi;
   private token: any = null;
+  private id = '';
   private user = '';
   private userName = '';
   private mail='';
@@ -26,12 +27,14 @@ export class LoginService {
           if (response.status === 'OK') {
             this.token = response.token;
             const decodedToken: any = jwt_decode(this.token);
+            this.id = decodedToken?.id;
             this.user = decodedToken?.user;
             this.userName = decodedToken?.username;
             this.mail = decodedToken?.mail;
             this.gender = decodedToken?.gender;
             this.role = decodedToken?.role;
             return true;
+
           } else {
             this.token = null;
             return false;
@@ -52,6 +55,9 @@ export class LoginService {
       mail: this.mail,
       role: this.role
     }
+  }
+  getAll(){
+    return this.httpClient.get<any[]>(this.urlLogin);
   }
 
 }

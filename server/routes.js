@@ -1,6 +1,6 @@
 import { getTest } from "./controllers/test.controller.js"
 import { addToCart, getCart, removeFromCart, deleteAll } from "./controllers/cart.controller.js";
-import { validateCredentials } from "./controllers/login.controller.js";
+import { validateCredentials,getAll } from "./controllers/login.controller.js";
 import jwt from "jsonwebtoken";
 import { SECRET_KEY } from "./config/config.js";
 import express from "express";
@@ -16,6 +16,7 @@ export const routes = (app) => {
         .delete(deleteAll),
     app.route('/api/login')
         .post(validateCredentials)
+        .get(getAll)
 }
 
 const checkToken = express.Router();  

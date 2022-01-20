@@ -9,12 +9,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { AccountComponent } from './features/account/account/account.component';
+import { ListAccountsComponent } from './features/list-accounts/list-accounts/list-accounts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    AccountComponent
+    AccountComponent,
+    ListAccountsComponent
     ],
   imports: [
     BrowserModule,
